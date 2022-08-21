@@ -1,0 +1,229 @@
+.App {
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.central-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    background-color: #1abc9c;
+}
+
+.control-bar {
+    height: 40px;
+    padding-bottom: 15px;
+    overflow: hidden;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.control-button-cnt {
+    padding: 8px;
+    width: 70px
+}
+
+.control-button {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+.start-button {
+    background: green;
+}
+
+.stop-button {
+    background: red;
+}
+
+.choosing-cnt {
+    margin-right: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-zone {
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #a4dbea;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.words-zone {
+    padding: 10px;
+    background-color: #e896ba;
+    height: 100%;
+    min-height: 700px;
+    width: 40%;
+    min-width: 400px;
+}
+
+.word-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.guess-word {
+    margin: 5px 15px 5px 5px;
+    padding: 3px;
+    background-color: #e2e8e2;
+}
+
+.right-translation {
+    margin: 5px;
+    padding: 3px;
+    background-color: #f6f6f6;
+}
+
+.wrong-translation {
+    margin: 5px;
+    padding: 3px;
+    background-color: #f39898;
+}
+
+.info-zone {
+    padding: 15px 5px 5px 5px;
+    background: #7eea86;
+}
+
+.column {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.play-button {
+    margin: 0 0 10px 5px;
+    border: none;
+    color: white;
+    padding: 20px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+.right-button {
+    background-color: #4CAF50; /* Green */
+}
+
+.wrong-button {
+    background-color: #e04141; /* Green */
+}
+
+.blocked-button{
+    background-color: #7c7c7c; /* Green */
+}
+
+.statistic {
+    margin: 15px 0 0 5px;
+    padding-top: 5px;
+    background: #ffffff;
+    border-radius: 3px;
+    height: 70%;
+    min-width: 150px;
+}
+
+.select-cnt {
+    margin: 0 15px 0 8px;
+}
+select {
+    appearance: none;
+    background-color: rgb(176, 232, 214);
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    border-radius: 3px;
+    min-width: 150px;
+    font-size: 16px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    margin: 0 20px 0 10px;
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(176, 232, 214);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 2px;
+}
+
+input:checked + .slider {
+    background-color: #1d93cc;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
