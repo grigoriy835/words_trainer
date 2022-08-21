@@ -1,14 +1,13 @@
 features:
-    ? refactor
     ? tests
 
     init window
-    add words
+    edit words
 
-    delete words
     change word result during game
     set number of words to guessing
 
     statistic
     косметика
     прокрутка для word_zone
+    окно с ошибкой в случае падения запросов
