@@ -17,10 +17,11 @@ async def extract_words_list(request: Request) -> Response:
         params.append(req_data['category'])
     con = sqlite3.connect(db_name)
     cur = con.cursor()
-    data = [{'id': row[0], 'word': row[1], 'translation': row[2], 'category': row[3]} for row in cur.execute(query, params)]
+    data = [{'id': row[0], 'word': row[1], 'translation': row[2], 'category': row[3]} for row in
+            cur.execute(query, params)]
 
     con.close()
-    return web.json_response(data=data)
+    return web.json_response(data=data, headers={'Access-Control-Allow-Origin': '*'})
 
 
 async def save_word(request: Request) -> Response:
@@ -30,7 +31,8 @@ async def save_word(request: Request) -> Response:
 
     con = sqlite3.connect(db_name)
     if 'id' in data:
-        query = 'UPDATE words SET word = ?, translation = ?' + (', category = ?' if 'category' in data else '') + ' WHERE id = ?'
+        query = 'UPDATE words SET word = ?, translation = ?' + (
+            ', category = ?' if 'category' in data else '') + ' WHERE id = ?'
         params = [data['word'], data['translation']]
         if 'category' in data:
             params.append(data['category'])
@@ -38,11 +40,12 @@ async def save_word(request: Request) -> Response:
 
         con.execute(query, params)
     else:
-        con.execute('''INSERT INTO words (word, translation, category) VALUES (?, ?, ?)''', (data['word'], data['translation'], data.get('category', 'default')))
+        con.execute('''INSERT INTO words (word, translation, category) VALUES (?, ?, ?)''',
+                    (data['word'], data['translation'], data.get('category', 'default')))
     con.commit()
     con.close()
 
-    return web.Response()
+    return web.Response(headers={'Access-Control-Allow-Origin': '*'})
 
 
 async def delete_word(request: Request) -> Response:
@@ -54,7 +57,7 @@ async def delete_word(request: Request) -> Response:
     con.commit()
     con.close()
 
-    return web.Response()
+    return web.Response(headers={'Access-Control-Allow-Origin': '*'})
 
 
 app = web.Application()
