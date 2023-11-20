@@ -1,0 +1,62 @@
+.edit_words-zone {
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #a4dbea;
+    display: inline-block;
+    height: 100%;
+    min-height: 1000px;
+    min-width: 800px;
+}
+
+.editable-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.editable-item span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.editable-item div {
+    margin-bottom: 10px;
+}
+
+.editable-item label {
+    display: inline-block;
+    width: 80px;
+}
+
+.editable-item .category-dropdown {
+    margin: 0 10px;
+}
+
+.save-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    width: 60px;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button {
+    background-color: darkred;
+    padding: 3px 15px;
+}
+.delete-button:hover {
+    background-color: #3b1616;
+}
+
+.not-saved {
+    background-color: white;
+}

@@ -17,6 +17,7 @@
 .control-bar {
     height: 40px;
     padding-bottom: 15px;
+    margin-bottom: 7px;
     overflow: hidden;
     position: sticky;
     position: -webkit-sticky;
@@ -74,9 +75,9 @@
     padding: 10px;
     background-color: #e896ba;
     height: 100%;
-    min-height: 700px;
+    min-height: 1000px;
     width: 40%;
-    min-width: 400px;
+    min-width: 600px;
 }
 
 .word-row {
@@ -88,17 +89,20 @@
     margin: 5px 15px 5px 5px;
     padding: 3px;
     background-color: #e2e8e2;
+    min-width: 45%;
 }
 
-.right-translation {
+.guess-translation {
     margin: 5px;
     padding: 3px;
+    min-width: 45%;
+}
+
+.guess-translation .right-translation {
     background-color: #f6f6f6;
 }
 
-.wrong-translation {
-    margin: 5px;
-    padding: 3px;
+.guess-translation .wrong-translation {
     background-color: #f39898;
 }
 
@@ -226,4 +230,8 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.hide {
+    display: none;
 }

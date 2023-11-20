@@ -148,6 +148,11 @@
 .select-cnt {
     margin: 0 15px 0 8px;
 }
+
+.select-category {
+    padding: 5px;
+}
+
 select {
     appearance: none;
     background-color: rgb(176, 232, 214);
