@@ -2,7 +2,9 @@ version: '3'
 
 services:
   nginx:
-    image: nginx:latest
+    build:
+      context: frontend
+      dockerfile: Dockerfile  # Path to your Dockerfile in the project root
     ports:
       - "80:80"
     volumes:
@@ -10,12 +12,20 @@ services:
       - ./frontend/build:/static
     depends_on:
       - words_trainer
+    networks:
+      - my_network
 
   words_trainer:
     build:
-      context: .
+      context: backend
       dockerfile: Dockerfile  # Path to your Dockerfile in the project root
-    ports:
-      - "9890:9890"
+    expose:
+      - "9890"  # Expose the port within the Docker network
     volumes:
       - ./backend/db:/app/db  # Mount specific volume for words_trainer
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
