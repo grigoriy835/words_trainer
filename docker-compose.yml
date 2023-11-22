@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx-conf:/etc/nginx/conf.d  # Mount Nginx configuration
+      - ./frontend/build:/static
+    depends_on:
+      - words_trainer
+
+  words_trainer:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Path to your Dockerfile in the project root
+    ports:
+      - "9890:9890"
+    volumes:
+      - ./backend/db:/app/db  # Mount specific volume for words_trainer

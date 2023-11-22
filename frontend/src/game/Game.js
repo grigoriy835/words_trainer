@@ -153,7 +153,7 @@ class Game extends React.Component {
     render() {
         let game_status = this.state.game_status
         let translate_shown = game_status.current_word ? game_status.current_word.show_translate : true;
-        let words_ready = this.state.data_loaded && this.get_words_to_guess()
+        let words_ready = this.state.data_loaded && this.get_words_to_guess().length
         return (
             <div className="App">
                 <div className="central-wrap header">

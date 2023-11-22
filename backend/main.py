@@ -5,7 +5,8 @@ import sqlite3
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
-db_name = 'main.db'
+db_name = 'db/main.db'
+headers = {}#{'Access-Control-Allow-Origin': '*'}
 
 
 async def extract_words_list(request: Request) -> Response:
@@ -24,7 +25,7 @@ async def extract_words_list(request: Request) -> Response:
             cur.execute(query, params)]
 
     con.close()
-    return web.json_response(data=data, headers={'Access-Control-Allow-Origin': '*'})
+    return web.json_response(data=data, headers=headers)
 
 
 def save_word_func(con, word: str, translation: str, id: str = None, category: str = None):
@@ -50,7 +51,7 @@ async def save_word(request: Request) -> Response:
     con.commit()
     con.close()
 
-    return web.Response(headers={'Access-Control-Allow-Origin': '*'})
+    return web.Response(headers=headers)
 
 
 async def save_word_batch(request: Request) -> Response:
@@ -61,7 +62,7 @@ async def save_word_batch(request: Request) -> Response:
     con.commit()
     con.close()
 
-    return web.Response(headers={'Access-Control-Allow-Origin': '*'})
+    return web.Response(headers=headers)
 
 
 async def delete_word(request: Request) -> Response:
@@ -73,14 +74,14 @@ async def delete_word(request: Request) -> Response:
     con.commit()
     con.close()
 
-    return web.Response(headers={'Access-Control-Allow-Origin': '*'})
+    return web.Response(headers=headers)
 
 
 app = web.Application()
-app.router.add_get('/words_list', extract_words_list)
-app.router.add_post('/save_word', save_word)
-app.router.add_post('/delete_word', delete_word)
-app.router.add_post('/save_word_batch', save_word_batch)
+app.router.add_get('/api/words_list', extract_words_list)
+app.router.add_post('/api/save_word', save_word)
+app.router.add_post('/api/delete_word', delete_word)
+app.router.add_post('/api/save_word_batch', save_word_batch)
 
 
 def run_server(host, port):
