@@ -2,9 +2,9 @@
 this is a simple web application for memorise the words
 
 ## Create files and folders
-download the source and run 
+download the source and run in project root (make sure you have preinstalled docker and docker-compose on your machine)
 > docker-compose up -d
 
-it should run 2 containers with application  
+app will occupy 80 port, to change port - update docker-compose configuration
 
-you have to preinstall docker and docker-compose on your machine
+it should run 2 containers with application
